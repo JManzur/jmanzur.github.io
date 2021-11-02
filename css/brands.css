@@ -161,7 +161,7 @@ button:hover,
 /* Blogger */
 .button.button-blogger {
   color: #ffffff;
-  background-color: #ec9f39;
+  background-color: #ff7d38;
 }
 .button.button-blogger:hover,
 .button.button-blogger:hover:before {
@@ -183,6 +183,20 @@ button:hover,
   white-space: initial;
 }
 .button.button-mail:focus {
+  filter: brightness(90%);
+}
+
+/* Certifications */
+.button.button-certs {
+  color: #000000;
+  border: 1px solid #ec9f39; 
+}
+.button.button-certs:hover,
+.button.button-certs:hover:before {
+  content: "Those are my current certifications. You can click on it to verify them on Credly.";
+  white-space: initial;
+}
+.button.button-certs:focus {
   filter: brightness(90%);
 }
 
