@@ -188,8 +188,8 @@ button:hover,
 
 /* Certifications */
 .button.button-certs {
-  color: #000000;
-  border: 1px solid #ec9f39; 
+  color: #ffffff;
+  border: 1px solid #985d0f; 
 }
 .button.button-certs:hover,
 .button.button-certs:hover:before {
