@@ -1,36 +1,3 @@
-/*
-* littlelink V1
-* https://littlelink.com
-* Free to use under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-* 12/21/2019
-*
-* Built using:
-*
-* Skeleton V2.0.4
-* Copyright 2014, Dave Gamache
-* www.getskeleton.com
-* Free to use under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-* 12/29/2014
-*/
-
-
-/* Table of contents
-––––––––––––––––––––––––––––––––––––––––––––––––––
-- Grid
-- Base Styles
-- Typography
-- Links
-- Code
-- Spacing
-- Utilities
-*
-* You'll find the button css in css/brands.css.
-*
-*/
-
-
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
@@ -67,17 +34,13 @@
 
 }
 
-
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* NOTE
-html is set to 62.5% so that all the REM measurements throughout Skeleton
-are based on 10px sizing. So basically 1.5rem = 15px :) */
 
 html {
   font-size: 100%; }
 body {
-  background-color: #292929;
+  background-color: #1b1b1b;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
@@ -145,7 +108,6 @@ p,
 ol {
   margin-bottom: 2.5rem; }
 
-
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .u-full-width {
@@ -159,7 +121,6 @@ ol {
 .u-pull-left {
   float: left; }
 
-
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 hr {
@@ -168,3 +129,14 @@ hr {
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
 
+iframe {
+  background-color: #D8D8D8;
+  border-radius: 20px
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  color: white;
+  font-size: 12px;
+}
