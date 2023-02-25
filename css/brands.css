@@ -137,7 +137,7 @@ button:hover,
 }
 .button.button-linkedin:hover,
 .button.button-linkedin:hover:before {
-  content: "If you want to contact me for a job opportunity, this is the best channel.";
+  content: "To discuss job opportunities, please use this channel.";
   white-space: initial;
 }
 .button.button-linkedin:focus {
@@ -193,7 +193,7 @@ button:hover,
 }
 .button.button-certs:hover,
 .button.button-certs:hover:before {
-  content: "Those are my current certifications. You can click on it to verify them on Credly.";
+  content: "These are my current certifications. You can click on them to verify their authenticity on Credly.";
   white-space: initial;
 }
 .button.button-certs:focus {
