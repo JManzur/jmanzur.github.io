@@ -31,52 +31,127 @@
 
 .button,
 button {
+  position: relative;
   display: inline-block;
+  box-sizing: border-box;
   text-decoration: none;
   height: 48px;
   text-align: center;
   vertical-align: middle;
   font-size: 18px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   font-weight: 700;
   line-height: 48px;
   letter-spacing: 0.1px;
-  white-space: wrap;
   border-radius: 8px;
   cursor: pointer;
 }
-button:hover,
-.button:focus {
-  color: #333;
-  border-color: #888;
-  outline: 0;
+button:hover {
+  filter: brightness(90%);
+}
+.button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 .button.button-primary {
   color: #fff;
   filter: brightness(90%);
 }
 .button.button-primary:hover,
-.button.button-primary:focus {
+.button.button-primary:focus-visible {
   color: #fff;
   filter: brightness(90%);
 }
 
-/* Hover description */
-.button:hover:before {
-  border: none;
-  color: white;
-  position: absolute;
-  padding: 0px 35px;
-  width: 400px;
-  height: auto;
-  word-spacing: 3px;
-  text-align: left;
-  text-decoration: none;
-  line-height: 1.3;
-  display: block;
-  font-size: 18px;
-  margin: 0px 280px;
-  cursor: pointer;
+/* Hover descriptions
+   Anchored to the button and gated behind a real pointer, so a tap on a touch
+   screen can't leave one stuck open or push the page sideways. The element is
+   rendered up front at opacity 0 so it can fade rather than snap in. */
+@media (hover: hover) and (pointer: fine) {
+  .button::before {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    box-sizing: border-box;
+    width: 280px;
+    max-width: calc(100vw - 32px);
+    padding: 10px 14px;
+    background-color: #1f2325;
+    border: 1px solid #3a4043;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.4;
+    text-align: left;
+    text-decoration: none;
+    white-space: normal;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  }
+  .button:hover::before,
+  .button:focus-visible::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .button.button-github::before {
+    content: "This is my playground, there you can find many of my personal demo projects.";
+  }
+
+  .button.button-gist::before {
+    content: "My ever growing collection of small but very useful scripts.";
+  }
+
+  .button.button-linkedin::before {
+    content: "To discuss job opportunities, please use this channel.";
+  }
+
+  .button.button-spotify::before {
+    content: "Here we can share some music and podcast!";
+  }
+
+  .button.button-docker::before {
+    content: "Small collection of docker images that you can use for testing and demos.";
+  }
+
+  .button.button-blogger::before {
+    content: "My old, forgotten, but still useful blog. (Spanish)";
+  }
+
+  .button.button-mail::before {
+    content: "Click and email me.";
+  }
+
+  .button.button-certs::before {
+    content: "These are my current certifications. You can verify them on Credly.";
+  }
+}
+
+/* Wide viewports have room in the gutter, so keep the original side placement. */
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .button::before {
+    top: 50%;
+    left: calc(100% + 20px);
+    transform: translateY(-50%) translateX(-4px);
+  }
+  .button:hover::before,
+  .button:focus-visible::before {
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button::before {
+    transition: none;
+  }
 }
 
 /* Brand Icons
@@ -98,7 +173,7 @@ button:hover,
   background-color: #0085ff;
 }
 .button.button-default:hover,
-.button.button-default:focus {
+.button.button-default:focus-visible {
   filter: brightness(90%);
 }
 
@@ -107,12 +182,7 @@ button:hover,
   color: #ffffff;
   background-color: #000000;
 }
-.button.button-github:hover,
-.button.button-github:hover:before {
-  content: "This is my playground, there you can find many of my personal demo projects.";
-  white-space: initial;
-}
-.button.button-github:focus {
+.button.button-github:focus-visible {
   filter: brightness(90%);
 }
 
@@ -121,12 +191,7 @@ button:hover,
   color: #ffffff;
   background-color: #424249;
 }
-.button.button-gist:hover,
-.button.button-gist:hover:before {
-  content: "My ever growing collection of small but very useful scripts.";
-  white-space: initial;
-}
-.button.button-gist:focus {
+.button.button-gist:focus-visible {
   filter: brightness(90%);
 }
 
@@ -135,12 +200,7 @@ button:hover,
   color: #ffffff;
   background-color: #2867b2;
 }
-.button.button-linkedin:hover,
-.button.button-linkedin:hover:before {
-  content: "To discuss job opportunities, please use this channel.";
-  white-space: initial;
-}
-.button.button-linkedin:focus {
+.button.button-linkedin:focus-visible {
   filter: brightness(90%);
 }
 
@@ -149,12 +209,7 @@ button:hover,
   color: #ffffff;
   background-color: #4b857b;
 }
-.button.button-spotify:hover,
-.button.button-spotify:hover:before {
-  content: "Here we can share some music and podcast!";
-  white-space: initial;
-}
-.button.button-spotify:focus {
+.button.button-spotify:focus-visible {
   filter: brightness(90%);
 }
 
@@ -163,12 +218,7 @@ button:hover,
   color: #ffffff;
   background-color: #086dd7;
 }
-.button.button-docker:hover,
-.button.button-docker:hover:before {
-  content: "Small collection of docker images that you can use for testing and demos.";
-  white-space: initial;
-}
-.button.button-docker:focus {
+.button.button-docker:focus-visible {
   filter: brightness(90%);
 }
 
@@ -177,12 +227,7 @@ button:hover,
   color: #ffffff;
   background-color: #ff7d38;
 }
-.button.button-blogger:hover,
-.button.button-blogger:hover:before {
-  content: "My old, forgotten, but still useful blog. (Spanish)";
-  white-space: initial;
-}
-.button.button-blogger:focus {
+.button.button-blogger:focus-visible {
   filter: brightness(90%);
 }
 
@@ -191,12 +236,7 @@ button:hover,
   color: #ffffff;
   background-color: #0085ff;
 }
-.button.button-mail:hover,
-.button.button-mail:hover:before {
-  content: "Click and email me.";
-  white-space: initial;
-}
-.button.button-mail:focus {
+.button.button-mail:focus-visible {
   filter: brightness(90%);
 }
 
@@ -205,12 +245,7 @@ button:hover,
   color: #ffffff;
   border: 1px solid #985d0f; 
 }
-.button.button-certs:hover,
-.button.button-certs:hover:before {
-  content: "These are my current certifications. You can verified them on Credly.";
-  white-space: initial;
-}
-.button.button-certs:focus {
+.button.button-certs:focus-visible {
   filter: brightness(90%);
 }
 
@@ -221,7 +256,7 @@ button:hover,
   background-color: #1da1f2;
 }
 .button.button-twitter:hover,
-.button.button-twitter:focus {
+.button.button-twitter:focus-visible {
   filter: brightness(90%);
 }
 
@@ -231,6 +266,6 @@ button:hover,
   background-image: linear-gradient(-135deg, #1400c8, #b900b4, #f50000);
 }
 .button.button-instagram:hover,
-.button.button-instagram:focus {
+.button.button-instagram:focus-visible {
   filter: brightness(90%);
 }
