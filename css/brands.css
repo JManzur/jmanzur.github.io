@@ -243,10 +243,14 @@ button:hover {
 /* Certifications */
 .button.button-certs {
   color: #ffffff;
-  border: 1px solid #985d0f; 
+  background-color: transparent;
+  border: 1px solid #D98324;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
+.button.button-certs:hover,
 .button.button-certs:focus-visible {
-  filter: brightness(90%);
+  background-color: rgba(217, 131, 36, 0.14);
+  border-color: #F0A045;
 }
 
 /*––––––––––––––––––––––Maybe some day–––––––––––––––––––––––––––– */
