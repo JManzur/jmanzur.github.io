@@ -53,6 +53,17 @@ h1 {
   margin-bottom: 16px;
   font-weight: 800; }
 h1 { font-size:24px; line-height: 64px; letter-spacing: 0;}
+h2 {
+  margin: 2.5rem 0 2rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid #2A2D2F;
+  border-bottom: 1px solid #2A2D2F;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8A9199; }
 
 
 /* Larger than phablet */
